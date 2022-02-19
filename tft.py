@@ -50,6 +50,9 @@ def click_to(path, delay=.1):
         click_left(delay)
 # End utility methods
 
+#added game counter in console
+gcounter = int (0)
+
 
 # Start main process
 def queue():
@@ -59,7 +62,11 @@ def queue():
         time.sleep(1)
         click_to("./captures/accept.png")
 
-    print("Loading!")
+    t = time.localtime()    # added for printing time
+    current_time = time.strftime("%H:%M:%S", t)
+    global gcounter         #increasing game count by one
+    gcounter = gcounter + 1 
+    print("Loading at:",current_time, "playing game #",gcounter)
     loading()
 
 
